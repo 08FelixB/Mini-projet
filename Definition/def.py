@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 def afficher_cases(tour_joueur):
     """
 
