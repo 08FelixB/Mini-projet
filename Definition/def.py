@@ -74,12 +74,19 @@ def afficher_cases(tour_joueur):
 
 
 
-def supprime_bateau():
+def bateau_atteint():
     """
-    Fonction qui supprime un bateau atteint complètement
+    Fonction qui indique que le bateau est atteint complètement
     :return: None
     """
-    #Si un bateaux a été atteint complètement, il disparait
+    #Si un bateaux a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+
+
+
+
+
+
+
 
 
 def affiche_nombre_bateau_restant():
