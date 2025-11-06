@@ -196,7 +196,7 @@ def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str
     #       insert ^ à [ligne de base],[colonne de base + 3]
     #       insert ^ à [ligne de base],[colonne de base + 4]
     # excepté erreur index:
-    # print
+    # print "J'aime les grosse pinis miam miam wuwa wuwa wuwa"
 
 
 
@@ -211,7 +211,15 @@ def bateau_atteint():
     Fonction qui indique que le bateau est atteint complètement
     :return: None
     """
-    #Si un bateaux a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    nombre_bateauj1 = 5
+    nombre_bateauj2 = 5
+
+    #Si le premier bateau a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau1 == "*":
+
+
+
+
 
 
 
@@ -288,7 +296,7 @@ def tirer_missile(tour_joueur: str,l: int, c: int) -> None:
         for ligne in grille_battleship_attaque_j1:
             print(ligne)
         # détermine où le jouer 2 tire son missile (en utilisant sa propre grille d'attaque)
-    if tour_joueur == "Joueur 2":
+    elif tour_joueur == "Joueur 2":
         grille_battleship_attaque_j2[l][c] = missile
         # affiche où le missile à été lancé
         print("Voici où vous avez tirer votre missile : ")
@@ -316,18 +324,32 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> str:
         print(f"Tour du {tour_joueur}")  # dit quel joueur joue son tour
         if tour_joueur == "Joueur 1":
             # détermine si le missile tiré par le jouer 1 frappe un bateau ou non (en utilisant sa propre grille d'attaque)
-            grille_battleship_attaque_j1[l][c] =
-            # affiche où le missile à été lancé
-            print("Voici où vous avez tirer votre missile : ")
-            for ligne in grille_battleship_attaque_j1:
-                print(ligne)
+            if grille_battleship_j1[l][c] == "^":
+                grille_battleship_attaque_j1[l][c] = hit
+                # affiche le missile étant "hit"
+                print("Votre missile a frapper un bateau : ")
+                for ligne in grille_battleship_attaque_j1:
+                    print(ligne)
+            else:
+                grille_battleship_attaque_j1[l][c] = miss
+                # affiche le missile étant "miss"
+                print("Votre missile n'a rien frapper : ")
+                for ligne in grille_battleship_attaque_j1:
+                    print(ligne)
             # détermine si le missile tiré par le jouer 2 frappe un bateau ou non(en utilisant sa propre grille d'attaque)
-        if tour_joueur == "Joueur 2" and grille_battleship_j1[l][c] == "^":
-            grille_battleship_attaque_j2[l][c] = hit
-            # affiche où le missile à été lancé
-            print("Voici où vous avez tirer votre missile : ")
-            for ligne in grille_battleship_attaque_j2:
-                print(ligne)
+        elif tour_joueur == "Joueur 2":
+            if grille_battleship_j1[l][c] == "^":
+                grille_battleship_attaque_j2[l][c] = hit
+                # affiche le missile étant "hit"
+                print("Votre missile a rien frapper un bateau : ")
+                for ligne in grille_battleship_attaque_j2:
+                    print(ligne)
+            else:
+                grille_battleship_attaque_j2[l][c] = miss
+                # affiche le missile étant "miss"
+                print("Votre missile n'a rien frapper : ")
+                for ligne in grille_battleship_attaque_j2:
+                    print(ligne)
 
 
 
