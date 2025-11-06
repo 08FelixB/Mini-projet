@@ -46,28 +46,35 @@ grille_battleship_attaque_j2 = [ # La liste du joueur 2 (affiche les missiles ti
     ["_", "_", "_", "_", "_", "_", "_", "_", "_"],
 
 ]
+# -----------------------------------------------------------------(grilles en haut = ludo)-----------------------------
 
 
 
 
-
-def afficher_cases(tour_joueur):
+def afficher_cases(tour_joueur): # Adem
     """
 
     :param tour_joueur: le tour de quel joueur
     :return:
     """
     if tour_joueur == "Joueur 1":
-        print("Liste du Joueur 1, placeholder")
+        print(grille_battleship_j1)
+    elif tour_joueur == "Joueur 2":
+        print(grille_battleship_j2)
     else:
-        print("Liste du Joueur 2, placeholder")
-        """
-        TODO: mettre les vraies listes dans les print, valeur utilisée peut etre changée dependadament sur quoi on choisit
-        """
+        print("Ce joueur n'existe pas.")
 
 
 
+def placer_bateau(liste_joueur : list[list[str]], coordonées : str, direction):
+    """
 
+    :param liste_joueur: liste du joueur
+    :param coordonées: points de l'index
+    :param direction: la direction à
+    :return:
+    """
+   #
 
 
 
@@ -89,12 +96,14 @@ def bateau_atteint():
 
 
 
-def affiche_nombre_bateau_restant():
+
+def affiche_nombre_bateau_restant(j1, j2):
     """
     Fonction qui affiche le nombre de bateau restant après chaque bateau noyé
     :return: Le nombre de bateau restant du j1 ou du j2
     """
     #Si un des bateaux du j1 a été atteint complètement, affiche le nombre de bateau restant du j1
+
 
 
 
@@ -116,6 +125,7 @@ def afficher_gagnant():
   :return: Le nom du gagnant
   """
   #Si le nombre de bateaux du j1 est plus petit que le nombre de bateaux du j2, le gagnant est j2
+  if
 
 
   #Si le nombre de bateaux du j2 est plus petit que le nombre de bateaux du j1, le gagnant est j1
@@ -126,7 +136,7 @@ def afficher_gagnant():
 
 
 
-
+#-------------------------------------------------------------------------(Les fonctions du bas = Ludovic)--------------
 # TODO: crée une fonction pour choisir où tirer le missile
 def tirer_missile(ligne: int, colonne: int, missile: str, grille: list[list[str]]) -> None:
     """
@@ -135,11 +145,9 @@ def tirer_missile(ligne: int, colonne: int, missile: str, grille: list[list[str]
     :param colonne: les colonnes de la grille
     :param missile: les coordonnées du missile
     :param grille: la grille
-    :return: afficher la grille
+    :return: None
     """
 
-
-#
 
 
 
@@ -150,7 +158,7 @@ def resultat_missile():
 
 
 
-#
+# e
 
 
 
