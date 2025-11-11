@@ -48,7 +48,8 @@ grille_battleship_attaque_j2 = [ # La liste du joueur 2 (affiche les missiles ti
 ]
 # -----------------------------------------------------------------(grilles en haut = ludo)-----------------------------
 
-
+nombre_bateauj1 = 5
+nombre_bateauj2 = 5
 
 
 def afficher_cases(tour_joueur): # Adem
@@ -196,7 +197,7 @@ def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str
     #       insert ^ à [ligne de base],[colonne de base + 3]
     #       insert ^ à [ligne de base],[colonne de base + 4]
     # excepté erreur index:
-    # print "J'aime les grosse pinis miam miam wuwa wuwa wuwa"
+
 
 
 
@@ -215,7 +216,15 @@ def bateau_atteint():
     nombre_bateauj2 = 5
 
     #Si le premier bateau a été atteint complètement, les cases du bateau sont remplacé par des hashtags
-    if bateau1 == "*":
+
+
+
+
+
+
+
+
+
 
 
 
@@ -253,18 +262,20 @@ def affiche_nombre_bateau_restant(j1, j2):
 
 
 
-def afficher_gagnant(nombre_bateauj1: int, nombre_bateauj2: int, gagnant1: input, gagnant2: input):
+def afficher_gagnant(nombre_bateauj1: int, nombre_bateauj2: int):
   """
   Fonction qui affiche le gagnant
   :nombre_bateauj1: Le nombre de bateau du joueur 1
   :nombre_bateauj2: Le nombre de bateau du joueur 2
   :return: Le nom du gagnant
   """
+  gagnant1 = "joueur 1"
+  gagnant2 = "joueur 2"
   #Si le nombre de bateaux du j1 est plus petit que le nombre de bateaux du j2, le gagnant est j2
   if nombre_bateauj1 == 0:
       return gagnant2
   #Si le nombre de bateaux du j2 est plus petit que le nombre de bateaux du j1, le gagnant est j1
-  if nombre_bateauj2 = 0:
+  if nombre_bateauj2 == 0:
      return gagnant1
 
 
@@ -308,7 +319,7 @@ def tirer_missile(tour_joueur: str,l: int, c: int) -> None:
 
 # TOD: crée une fonction pour dire si un missile à atteint un bateau (ou s'il à tirer le vide) en changeant
 #  le str de la case en fonction de s'il a frapper un bateau ou non.
-def resultat_missile(tour_joueur: str, l: int, c: int) -> str:
+def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
         """
         Fonction qui
         :param tour_joueur: indique le joueur qui complète son tour (d'attaque)
