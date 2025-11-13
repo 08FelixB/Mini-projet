@@ -68,8 +68,8 @@ def afficher_cases(tour_joueur): # Adem
 
 
 def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str, bateau: int):
+#def placer_bateau(bateau:int, l, c):
     """
-
     :param liste_joueur: liste du joueur à placer les bateaux
     :param l: ligne du point d'origine du bateau
     :param c: colonne du point d'origine
@@ -77,10 +77,29 @@ def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str
     :param bateau : le nombre de cases du bateau
     :return: la liste mise à jour
     """
+
     liste_joueur[l][c] = "^"
     try:
         if bateau == 2 and direction == "gauche":
-            liste_joueur[l - 1][c] = "^"
+            while True:
+                if l > 0 or l < 8:
+                    liste_joueur[l][c - 1] = "^"
+                    break
+                else:
+
+
+            bateauliste = [liste_joueur[l][c], liste_joueur[l - 1][c]]
+            return bateauliste
+
+
+
+
+
+
+
+
+
+
         elif bateau == 2 and direction == "bas":
             liste_joueur[l][c - 1] = "^"
         elif bateau == 2 and direction == "droite":
@@ -207,7 +226,7 @@ def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str
 
 
 
-def bateau_atteint():
+def bateau_atteint(bateau_touche):
     """
     Fonction qui indique que le bateau est atteint complètement
     :return: None
@@ -216,7 +235,26 @@ def bateau_atteint():
     nombre_bateauj2 = 5
 
     #Si le premier bateau a été atteint complètement, les cases du bateau sont remplacé par des hashtags
-
+    if bateau1_n1_j1 == "*":
+        bateau1_n1_j1.replace("*", "#")
+    if bateau1_n2_j1 == "*":
+        bateau1_n2_j1.replace("*", "#")
+    if bateau3_j1 == "*":
+        bateau3_j1.replace("*", "#")
+    if bateau4_j1 == "*":
+        bateau4_j1.replace("*", "#")
+    if bateau5_j1 == "*":
+        bateau4_j2.replace("*", "#")
+    if bateau1_n1_j1 == "*":
+        bateau1_n1_j1.replace("*", "#")
+    if bateau1_n2_j1 == "*":
+        bateau1_n2_j1.replace("*", "#")
+    if bateau2_j2 == "*":
+        bateau2_j2.replace("*", "#")
+    if bateau3_j2 == "*":
+        bateau3_j2.replace("*", "#")
+    if bateau4_j2 == "*":
+        bateau4_j2.replace("*", "#")
 
 
 
