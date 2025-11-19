@@ -67,7 +67,7 @@ def afficher_cases(tour_joueur): # Adem
 
 
 
-def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str, bateau: int):
+def placer_bateau(liste_joueur : list[list[str]],l, c, direction: str, bateau: int):
 #def placer_bateau(bateau:int, l, c):
     """
     :param liste_joueur: liste du joueur à placer les bateaux
@@ -78,151 +78,242 @@ def placer_bateau(liste_joueur : list[list[str]],l : int, c: int, direction: str
     :return: la liste mise à jour
     """
 
-    liste_joueur[l][c] = "^"
+
+    if liste_joueur[l][c] == "^":
+        print("Cette emplacement a déja un bateau.")
+        return "Erreur."
+
+    try:
+        liste_joueur[l][c] = "^"
+    except IndexError:
+        print("L'emplacement n'est pas dans la grille.")
+        return "Erreur."
+
     try:
         if bateau == 2 and direction == "gauche":
             while True:
-                if l > 0 or l < 8:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c - 1] == "^":
+                        return "Erreur."
                     liste_joueur[l][c - 1] = "^"
-                    break
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c - 1]]
+                    return bateauliste
                 else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
-            bateauliste = [liste_joueur[l][c], liste_joueur[l - 1][c]]
-            return bateauliste
+        if bateau == 2 and direction == "droite":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c + 1] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c + 1] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c + 1]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
+        if bateau == 2 and direction == "bas":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l + 1][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l + 1][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l + 1][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
+        if bateau == 2 and direction == "haut":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l - 1][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l - 1][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l - 1][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
+        if bateau == 3 and direction == "gauche":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c - 1] == "^" or liste_joueur[l][c - 2] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c - 1] = "^"
+                    liste_joueur[l][c - 2] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c - 1], liste_joueur[l][c - 2]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 3 and direction == "droite":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c + 1] == "^" or liste_joueur[l][c + 2] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c + 1] = "^"
+                    liste_joueur[l][c + 2] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c + 1], liste_joueur[l][c + 2]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 3 and direction == "bas":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l + 1][c] == "^" or liste_joueur[l + 2][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l + 1][c] = "^"
+                    liste_joueur[l + 2][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l + 1][c], liste_joueur[l + 2][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 3 and direction == "haut":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l - 1][c] == "^" or liste_joueur[l --- 2][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l - 1][c] = "^"
+                    liste_joueur[l - 2][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l - 1][c], liste_joueur[l - 2][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
+        if bateau == 4 and direction == "gauche":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c - 1] == "^" or liste_joueur[l][c - 2] == "^" or liste_joueur[l][c - 3] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c - 1] = "^"
+                    liste_joueur[l][c - 2] = "^"
+                    liste_joueur[l][c - 3] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c - 1], liste_joueur[l][c - 2], liste_joueur[l][c - 3]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 4 and direction == "droite":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c + 1] == "^" or liste_joueur[l][c + 2] == "^" or liste_joueur[l][c + 3] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c + 1] = "^"
+                    liste_joueur[l][c + 2] = "^"
+                    liste_joueur[l][c + 3] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c + 1], liste_joueur[l][c + 2], liste_joueur[l][c + 3]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 4 and direction == "bas":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l + 1][c] == "^" or liste_joueur[l + 2][c] == "^" or liste_joueur[l + 3][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l + 1][c] = "^"
+                    liste_joueur[l + 2][c] = "^"
+                    liste_joueur[l + 3][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l + 1][c], liste_joueur[l + 2][c], liste_joueur[l + 3][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 4 and direction == "haut":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l - 1][c] == "^" or liste_joueur[l - 2][c] == "^" or liste_joueur[l - 3][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l - 1][c] = "^"
+                    liste_joueur[l - 2][c] = "^"
+                    liste_joueur[l - 3][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l - 1][c], liste_joueur[l - 2][c], liste_joueur[l - 3][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
 
 
-        elif bateau == 2 and direction == "bas":
-            liste_joueur[l][c - 1] = "^"
-        elif bateau == 2 and direction == "droite":
-            liste_joueur[l + 1][c] = "^"
-        elif bateau == 2 and direction =="haut":
-            liste_joueur[l][c + 1] = "^"
-        elif bateau == 3 and direction == "gauche":
-            liste_joueur[l - 1][c] = "^"
-            liste_joueur[l - 2][c] = "^"
-        elif bateau == 3 and direction == "bas":
-            liste_joueur[l][c - 1] = "^"
-            liste_joueur[l][c - 2] = "^"
-        elif bateau == 3 and direction == "droite":
-            liste_joueur[l + 1][c] = "^"
-            liste_joueur[l + 1][c] = "^"
-        elif bateau == 3 and direction == "haut":
-            liste_joueur[l][c + 1] = "^"
-            liste_joueur[l][c + 2] = "^"
-        elif bateau == 4 and direction == "gauche":
-            liste_joueur[l - 1][c] = "^"
-            liste_joueur[l - 2][c] = "^"
-            liste_joueur[l - 3][c] = "^"
-        elif bateau == 4 and direction == "bas":
-            liste_joueur[l][c - 1] = "^"
-            liste_joueur[l][c - 2] = "^"
-            liste_joueur[l][c - 3] = "^"
-        elif bateau == 4 and direction == "droite":
-            liste_joueur[l + 1][c] = "^"
-            liste_joueur[l + 2][c] = "^"
-            liste_joueur[l + 3][c] = "^"
-        elif bateau == 4 and direction == "haut":
-            liste_joueur[l][c + 1] = "^"
-            liste_joueur[l][c + 2] = "^"
-            liste_joueur[l][c + 3] = "^"
-        elif bateau == 5 and direction == "gauche":
-            liste_joueur[l - 1][c] = "^"
-            liste_joueur[l - 2][c] = "^"
-            liste_joueur[l - 3][c] = "^"
-            liste_joueur[l - 4][c] = "^"
-        elif bateau == 5 and direction == "bas":
-            liste_joueur[l][c - 1] = "^"
-            liste_joueur[l][c - 2] = "^"
-            liste_joueur[l][c - 3] = "^"
-            liste_joueur[l][c - 4] = "^"
-        elif bateau == 5 and direction == "droite":
-            liste_joueur[l + 1][c] = "^"
-            liste_joueur[l + 2][c] = "^"
-            liste_joueur[l + 3][c] = "^"
-            liste_joueur[l + 4][c] = "^"
-        elif bateau == 5 and direction == "haut":
-            liste_joueur[l][c + 1] = "^"
-            liste_joueur[l][c + 2] = "^"
-            liste_joueur[l][c + 3] = "^"
-            liste_joueur[l][c + 4] = "^"
+        if bateau == 5 and direction == "gauche":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c - 1] == "^" or liste_joueur[l][c - 2] == "^" or liste_joueur[l][c - 3] == "^" or liste_joueur[l][c - 4] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c - 1] = "^"
+                    liste_joueur[l][c - 2] = "^"
+                    liste_joueur[l][c - 3] = "^"
+                    liste_joueur[l][c - 4] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c - 1], liste_joueur[l][c - 2], liste_joueur[l][c - 3], liste_joueur[l][c - 4]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 5 and direction == "droite":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l][c + 1] == "^" or liste_joueur[l][c + 2] == "^" or liste_joueur[l][c + 3] == "^" or liste_joueur[l][c + 4] == "^":
+                        return "Erreur."
+                    liste_joueur[l][c + 1] = "^"
+                    liste_joueur[l][c + 2] = "^"
+                    liste_joueur[l][c + 3] = "^"
+                    liste_joueur[l][c + 4] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l][c + 1], liste_joueur[l][c + 2], liste_joueur[l][c + 3], liste_joueur[l][c + 4]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 5 and direction == "bas":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l + 1][c] == "^" or liste_joueur[l + 2][c] == "^" or liste_joueur[l + 3][c] == "^" or liste_joueur[l + 4][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l + 1][c] = "^"
+                    liste_joueur[l + 2][c] = "^"
+                    liste_joueur[l + 3][c] = "^"
+                    liste_joueur[l + 4][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l + 1][c], liste_joueur[l + 2][c], liste_joueur[l + 3][c], liste_joueur[l + 4][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
+
+        if bateau == 5 and direction == "haut":
+            while True:
+                if l >= 0 or l <= 8 and c >= 0 or c <= 8:
+                    if liste_joueur[l - 1][c] == "^" or liste_joueur[l - 2][c] == "^" or liste_joueur[l - 3][c] == "^" or liste_joueur[l - 4][c] == "^":
+                        return "Erreur."
+                    liste_joueur[l - 1][c] = "^"
+                    liste_joueur[l - 2][c] = "^"
+                    liste_joueur[l - 3][c] = "^"
+                    liste_joueur[l - 4][c] = "^"
+                    bateauliste = [liste_joueur[l][c], liste_joueur[l -- 1][c], liste_joueur[l - 2][c], liste_joueur[l - 3][c], liste_joueur[l - 4][c]]
+                    return bateauliste
+                else:
+                    print("Le bateau n'est pas dans la grille. Veuillez réesayer.")
+                    continue
     except IndexError:
-        print("Le bateau dépasse l'arène de jeu.")
-
-    # aller à la colonne de la ligne et insérer ^
-    # try:
-    #   if bateau = 2 and direction == "gauche":
-    #       insert ^ à [ligne de base -1],[colonne de base]
-    #   elif bateau = 2 and direction == "bas":
-    #       insert ^ à [ligne de base],[colonne de base -1]
-    #   elif bateau = 2 and direction == "droite":
-    #       insert ^ à [ligne de base + 1],[colonne de base]
-    #   elif bateau = 2 and direction == "haut":
-    #       insert ^ à [ligne de base],[colonne de base + 1]
-    #   if bateau = 3 and direction == "gauche":
-    #       insert ^ à [ligne de base -1],[colonne de base]
-    #       insert ^ à [ligne de base -2],[colonne de base]
-    #   elif bateau = 3 and direction == "bas":
-    #       insert ^ à [ligne de base],[colonne de base - 2]
-    #       insert ^ à [ligne de base],[colonne de base - 1]
-    #   elif bateau = 3 and direction == "droite":
-    #       insert ^ à [ligne de base + 1],[colonne de base]
-    #       insert ^ à [ligne de base + 2],[colonne de base]
-    #   elif bateau = 3 and direction == "haut":
-    #       insert ^ à [ligne de base],[colonne de base + 1]
-    #       insert ^ à [ligne de base],[colonne de base + 2]
-    #   if bateau = 4 and direction == "gauche":
-    #       insert ^ à [ligne de base -1],[colonne de base]
-    #       insert ^ à [ligne de base -2],[colonne de base]
-    #       insert ^ à [ligne de base -3],[colonne de base]
-    #   elif bateau = 4 and direction == "bas":
-    #       insert ^ à [ligne de base],[colonne de base -1]
-    #       insert ^ à [ligne de base],[colonne de base -2]
-    #       insert ^ à [ligne de base],[colonne de base -3]
-    #   elif bateau = 4 and direction == "droite":
-    #       insert ^ à [ligne de base + 1],[colonne de base]
-    #       insert ^ à [ligne de base + 2],[colonne de base]
-    #       insert ^ à [ligne de base + 3],[colonne de base]
-    #   elif bateau = 4 and direction == "haut":
-    #       insert ^ à [ligne de base],[colonne de base + 1]
-    #       insert ^ à [ligne de base],[colonne de base + 2]
-    #       insert ^ à [ligne de base],[colonne de base + 3]
-    #   if bateau = 5 and direction == "gauche":
-    #       insert ^ à [ligne de base -1],[colonne de base]
-    #       insert ^ à [ligne de base -2],[colonne de base]
-    #       insert ^ à [ligne de base -3],[colonne de base]
-    #       insert ^ à [ligne de base -4],[colonne de base]
-    #   elif bateau = 5 and direction == "bas":
-    #       insert ^ à [ligne de base],[colonne de base -1]
-    #       insert ^ à [ligne de base],[colonne de base -2]
-    #       insert ^ à [ligne de base],[colonne de base -3]
-    #       insert ^ à [ligne de base],[colonne de base -4]
-    #   elif bateau = 5 and direction == "droite":
-    #       insert ^ à [ligne de base + 1],[colonne de base]
-    #       insert ^ à [ligne de base + 2],[colonne de base]
-    #       insert ^ à [ligne de base + 3],[colonne de base]
-    #       insert ^ à [ligne de base + 4],[colonne de base]
-    #   elif bateau = 5 and direction == "haut":
-    #       insert ^ à [ligne de base],[colonne de base + 1]
-    #       insert ^ à [ligne de base],[colonne de base + 2]
-    #       insert ^ à [ligne de base],[colonne de base + 3]
-    #       insert ^ à [ligne de base],[colonne de base + 4]
-    # excepté erreur index:
-
-
-
-
-
-
-
+        print("Le bateau n'est pas dans la grille.")
+        return "Erreur."
 
 
 
