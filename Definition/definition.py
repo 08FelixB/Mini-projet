@@ -551,4 +551,4 @@ def fonction_tour_joueur(nb_tour_joueur: int,) -> str:
         tour_joueur = "Joueur 1"
     else:
         tour_joueur = "Joueur 2"
-    return f"C'est le tour du {tour_joueur}"
+    return tour_joueur

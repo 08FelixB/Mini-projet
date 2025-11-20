@@ -5,18 +5,18 @@ from Definition.definition import *
 def test_placer_bateau():
     # Arrange
     #Act
-    placer_bateau(grille_battleship_j1, 4, 8, "gauche", 2)
+    placer_bateau(grille_battleship_j1, 0, 0, "bas", 2)
 
     # Assert
-    assert grille_battleship_j1[4][8] == "^"
+    assert grille_battleship_j1[0][0] == "^" and grille_battleship_j1[1][0] == "^"
 
-@pytest.mark.parametrize("mots, longueur", [
-    (["banane", "orange", "pomme"], 3),
-    (["banane", "orange", "pomme", "sadlhaosd", "aksdas"], 5),
-    (["banane", "orange"], 2),
-    ([], 0)
+@pytest.mark.parametrize("Joueur, ligne, colonne, message", [
+    ("Joueur 1", 1, 1, "Votre missile à tiré"),
+    ("Joueur 1", -1, 1, "Vos coordonnées doivent être entre ou égales à 0 et 8"),
+    ("Joueur 1", "a", "o", "Les coordonnées doivent êtres des nombres!"),
+    ("Joueur 1", 6, 10, "Vos coordonnées doivent être entre ou égales à 0 et 8"),
 ])
-def test_hasher_mots(mots, longueur):
+def test_tirer_missile():
 
     dict_hash = crypt.hasher_mots(mots)
 
