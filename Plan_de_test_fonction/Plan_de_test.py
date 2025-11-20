@@ -51,8 +51,8 @@ def test_bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_
     nombre_bateauj2 = 5
     #Act
     resultat = bateau1_j1 = "#"
-    resultat_attendu = bateau_atteint((bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
-    bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2):)
+    resultat_attendu = bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
+    bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2)
     #Assert
     assert resulat == resultat_attendu
 
