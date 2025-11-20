@@ -41,3 +41,13 @@ def test_chiffrement_cesar(initial, nb_cesar, chaine_attendue):
     assert isinstance(chaine_cesar, str)
     assert len(chaine_cesar) == len(initial)
     assert chaine_cesar == chaine_attendue
+
+def test_afficher_gagnant():
+    # Arrange
+    nombre_bateauj1 = 2
+    nombre_bateauj2 = 0
+    #Act
+    resultat_attendu = "Joueur 1"
+    resultat_obtenu = afficher_gagnant(2, 0)
+    #Assert
+    assert resultat_attendu == resultat_obtenu

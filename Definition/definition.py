@@ -48,8 +48,7 @@ grille_battleship_attaque_j2 = [ # La liste du joueur 2 (affiche les missiles ti
 ]
 # -----------------------------------------------------------------(grilles en haut = ludo)-----------------------------
 
-nombre_bateauj1 = 5
-nombre_bateauj2 = 5
+
 
 
 def afficher_cases(tour_joueur): # Adem
@@ -317,35 +316,79 @@ def placer_bateau(liste_joueur : list[list[str]],l, c, direction: str, bateau: i
 
 
 
-def bateau_atteint(bateau_touche):
+def bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
+    bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2):
     """
     Fonction qui indique que le bateau est atteint complètement
-    :return: None
+    :param bateau1_j1: Le bateau 1 du j1
+    :param bateau2_j1: Le bateau 2 du j1
+    :param bateau3_j1: Le bateau 3 du j1
+    :param bateau4_j1: Le bateau 4 du j1
+    :param bateau5_j1: Le bateau 5 du j1
+    :param bateau1_j2: Le bateau 1 du j2
+    :param bateau2_j2: Le bateau 2 du j2
+    :param bateau3_j2: Le bateau 3 du j2
+    :param bateau4_j2: Le bateau 4 du j2
+    :param bateau5_j2: Le bateau 5 du j2
+    :param nombre_bateauj1: Le nombre de bateaux du joueur 1
+    :param nombre_bateauj2: Le nombre de bateaux du joueur 2
+    :return: Le nombre restant de bateaux du joueur 1 et du joueur 2
     """
-    nombre_bateauj1 = 5
-    nombre_bateauj2 = 5
-
     #Si le premier bateau a été atteint complètement, les cases du bateau sont remplacé par des hashtags
-    if bateau1_n1_j1 == "*":
-        bateau1_n1_j1.replace("*", "#")
-    if bateau1_n2_j1 == "*":
-        bateau1_n2_j1.replace("*", "#")
-    if bateau3_j1 == "*":
-        bateau3_j1.replace("*", "#")
-    if bateau4_j1 == "*":
-        bateau4_j1.replace("*", "#")
-    if bateau5_j1 == "*":
-        bateau4_j2.replace("*", "#")
-    if bateau1_n1_j1 == "*":
-        bateau1_n1_j1.replace("*", "#")
-    if bateau1_n2_j1 == "*":
-        bateau1_n2_j1.replace("*", "#")
-    if bateau2_j2 == "*":
-        bateau2_j2.replace("*", "#")
-    if bateau3_j2 == "*":
-        bateau3_j2.replace("*", "#")
-    if bateau4_j2 == "*":
-        bateau4_j2.replace("*", "#")
+    if bateau1_j1 == "*":
+        bateau1_j1 = bateau1_j1.replace("*", "#")
+        nombre_bateauj1 -= 1
+        print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+        if bateau2_j1 == "*":
+            bateau2_j1 = bateau2_j1.replace("*", "#")
+            nombre_bateauj1 -= 1
+            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+
+        if bateau3_j1 == "*":
+            bateau3_j1 = bateau3_j1.replace("*", "#")
+            nombre_bateauj1 -= 1
+            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+        if bateau4_j1 == "*":
+            bateau4_j1 = bateau4_j1.replace("*", "#")
+            nombre_bateauj1 -= 1
+            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+        if bateau5_j1 == "*":
+            bateau5_j1 = bateau5_j1.replace("*", "#")
+            nombre_bateauj1 -= 1
+            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+        if bateau1_j2 == "*":
+            bateau1_j2 = bateau1_j2.replace("*", "#")
+            nombre_bateauj2 -= 1
+            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+
+        if bateau2_j2 == "*":
+            bateau2_j2 = bateau2_j2.replace("*", "#")
+            nombre_bateauj2 -= 1
+            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+
+        if bateau3_j2 == "*":
+            bateau3_j2 = bateau3_j2.replace("*", "#")
+            nombre_bateauj2 -= 1
+            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+
+        if bateau4_j2 == "*":
+            bateau4_j2 = bateau4_j2.replace("*", "#")
+            nombre_bateauj2 -= 1
+            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+        if bateau5_j2 == "*":
+            bateau5_j2 = bateau5_j2.replace("*", "#")
+            nombre_bateauj2 -= 1
+            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+
+        return bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
+    bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2
+
+
+
+
+
+
+
 
 
 
@@ -380,6 +423,9 @@ def affiche_nombre_bateau_restant(j1, j2):
 
 
 
+
+
+
     #Si un des bateaux du j2 a été atteint complètement, affiche le nombre de bateau restant du j2
 
 
@@ -398,14 +444,18 @@ def afficher_gagnant(nombre_bateauj1: int, nombre_bateauj2: int):
   :nombre_bateauj2: Le nombre de bateau du joueur 2
   :return: Le nom du gagnant
   """
-  gagnant1 = "joueur 1"
-  gagnant2 = "joueur 2"
   #Si le nombre de bateaux du j1 est plus petit que le nombre de bateaux du j2, le gagnant est j2
   if nombre_bateauj1 == 0:
-      return gagnant2
+      gagnant = "Joueur 2"
+      print(f"Le gagnant est le {gagnant}")
+      return gagnant
   #Si le nombre de bateaux du j2 est plus petit que le nombre de bateaux du j1, le gagnant est j1
   if nombre_bateauj2 == 0:
-     return gagnant1
+      gagnant = "Joueur 1"
+      print(f"Le gagnant est le {gagnant}")
+      return gagnant
+
+  return None
 
 
 

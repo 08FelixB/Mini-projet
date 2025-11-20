@@ -1,4 +1,5 @@
-from Definition.definition import placer_bateau
+from Definition.definition import placer_bateau, resultat_missile, bateau_atteint
+
 if __name__ == "__main__":
     grille_battleship_j1 = [  # La liste du joueur 1 (affiche les bateaux placés)
         ["_", "_", "_", "_", "_", "_", "_", "_", "_"],
@@ -47,15 +48,31 @@ if __name__ == "__main__":
         ["_", "_", "_", "_", "_", "_", "_", "_", "_"],
         ["_", "_", "_", "_", "_", "_", "_", "_", "_"],
     ]
-    print("Bienvenue a Battleship!")
-    direction = input("Choissisez une direction du premier bateau a 2 cases:")
-    ligne_appel = input("Choissisez une ligne pour placer la queue du bateau.")
-    colonne_appel = input("Choissisez une colonne pour placer la queue du bateau.")
-    l = int(ligne_appel)
-    c = int(colonne_appel)
-    bateau2n1_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
-    for ligne in grille_battleship_j1:
-        print(ligne)
+
+
+
+# Compteurs
+nombre_bateauj1 = 5
+nombre_bateauj2 = 5
+
+
+
+
+print("Bienvenue a Battleship!")
+direction = input("Choissisez une direction du premier bateau a 2 cases:")
+ligne_appel = input("Choissisez une ligne pour placer la queue du bateau.")
+colonne_appel = input("Choissisez une colonne pour placer la queue du bateau.")
+l = int(ligne_appel)
+c = int(colonne_appel)
+bateau1_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
+for ligne in grille_battleship_j1:
+    print(ligne)
+
+
+
+
+
+
 
 
 
