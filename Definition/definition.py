@@ -464,7 +464,7 @@ def afficher_gagnant(nombre_bateauj1: int, nombre_bateauj2: int):
 
 
 #-------------------------------------------------------------------------(Les fonctions du bas = Ludovic)--------------
-# TOD: crée une fonction pour choisir où tirer le missile
+# TODO: crée une fonction pour choisir où tirer le missile
 def tirer_missile(tour_joueur: str,l: int, c: int) -> None:
     """
     Fonction qui demande au joueur choisir où tirer son missile (tour de l'attaque)
@@ -477,7 +477,7 @@ def tirer_missile(tour_joueur: str,l: int, c: int) -> None:
 
     # Dans le code principale : demande au joueur où il veut tirer son missile (l = xyz, c = xyz)
 
-    print(f"Tour du {tour_joueur}") # dit quel joueur joue son tour
+
     if tour_joueur == "Joueur 1":
         # détermine où le jouer 1 tire son missile (en utilisant sa propre grille d'attaque)
         grille_battleship_attaque_j1[l][c] = missile
@@ -496,7 +496,7 @@ def tirer_missile(tour_joueur: str,l: int, c: int) -> None:
 
 
 
-# TOD: crée une fonction pour dire si un missile à atteint un bateau (ou s'il à tirer le vide) en changeant
+# TODO: crée une fonction pour dire si un missile à atteint un bateau (ou s'il à tirer le vide) en changeant
 #  le str de la case en fonction de s'il a frapper un bateau ou non.
 def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
         """
@@ -516,7 +516,7 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
             # détermine si le missile tiré par le jouer 1 frappe un bateau ou non (en utilisant sa propre grille d'attaque)
             if grille_battleship_j1[l][c] == "^":
                 grille_battleship_attaque_j1[l][c] = hit
-                # affiche le missile étant "hit"
+                # affiche le missile étant "hit" sur la grille d'attaque du joueur
                 print("Votre missile a frapper un bateau : ")
                 for ligne in grille_battleship_attaque_j1:
                     print(ligne)
@@ -530,7 +530,7 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
         elif tour_joueur == "Joueur 2":
             if grille_battleship_j1[l][c] == "^":
                 grille_battleship_attaque_j2[l][c] = hit
-                # affiche le missile étant "hit"
+                # affiche le missile étant "hit" sur la grille d'attaque du joueur
                 print("Votre missile a rien frapper un bateau : ")
                 for ligne in grille_battleship_attaque_j2:
                     print(ligne)
@@ -541,6 +541,14 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
                 for ligne in grille_battleship_attaque_j2:
                     print(ligne)
 
-
-
-
+def fonction_tour_joueur(nb_tour_joueur: int,) -> str:
+    """
+    Fonction qui determine le tour du joueur (j1 ou j2)
+    :param nb_tour_joueur: un nombre pour determiner le tour d'un joueur
+    :return: le tour du joueur
+    """
+    if (nb_tour_joueur % 2) == 0:
+        tour_joueur = "Joueur 1"
+    else:
+        tour_joueur = "Joueur 2"
+    return f"C'est le tour du {tour_joueur}"

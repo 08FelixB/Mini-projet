@@ -54,19 +54,30 @@ if __name__ == "__main__":
 # Compteurs
 nombre_bateauj1 = 5
 nombre_bateauj2 = 5
+nb_tour_joueur = 0
+
+
 
 
 
 
 print("Bienvenue a Battleship!")
-direction = input("Choissisez une direction du premier bateau a 2 cases:")
-ligne_appel = input("Choissisez une ligne pour placer la queue du bateau.")
-colonne_appel = input("Choissisez une colonne pour placer la queue du bateau.")
-l = int(ligne_appel)
-c = int(colonne_appel)
-bateau1_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
-for ligne in grille_battleship_j1:
-    print(ligne)
+
+#PHASE PLACER BATEAU POUR CHAQUE JOUEURS (commence par joueur 1) -------------------------------------------------------
+
+
+# pour chaque bateau parmis les 5
+for bateau in range(5):
+    #demande a l'utilisateur les donnees besoins pour placer les bateaux
+    direction = input("Choissisez une direction du premier bateau a 2 cases:")
+    ligne_appel = input("Choissisez une ligne pour placer la queue du bateau.")
+    colonne_appel = input("Choissisez une colonne pour placer la queue du bateau.")
+    l = int(ligne_appel)
+    c = int(colonne_appel)
+    #place le bateau
+    bateau1_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
+    for ligne in grille_battleship_j1:
+        print(ligne)
 
 
 
