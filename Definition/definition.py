@@ -76,12 +76,13 @@ def placer_bateau(liste_joueur : list[list[str]],l, c, direction: str, bateau: i
     :param bateau : le nombre de cases du bateau
     :return: la liste mise à jour
     """
-
-
     if liste_joueur[l][c] == "^":
         print("Cette emplacement a déja un bateau.")
         return "Erreur."
-
+    """
+    if direction != "gauche" or direction != "droite" or direction != "haut" or direction != "bas":
+        return "Erreur."
+    """
     try:
         liste_joueur[l][c] = "^"
     except IndexError:
@@ -319,7 +320,7 @@ def placer_bateau(liste_joueur : list[list[str]],l, c, direction: str, bateau: i
 def bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
     bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2):
     """
-    Fonction qui indique que le bateau est atteint complètement
+    Fonction qui indique que le bateau est atteint complètement et qui dit le nombre de bateau restant après
     :param bateau1_j1: Le bateau 1 du j1
     :param bateau2_j1: Le bateau 2 du j1
     :param bateau3_j1: Le bateau 3 du j1
@@ -334,53 +335,58 @@ def bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
     :param nombre_bateauj2: Le nombre de bateaux du joueur 2
     :return: Le nombre restant de bateaux du joueur 1 et du joueur 2
     """
-    #Si le premier bateau a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    #Si le premier bateau du j1 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
     if bateau1_j1 == "*":
         bateau1_j1 = bateau1_j1.replace("*", "#")
         nombre_bateauj1 -= 1
         print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
-        if bateau2_j1 == "*":
-            bateau2_j1 = bateau2_j1.replace("*", "#")
-            nombre_bateauj1 -= 1
-            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+    # Si le deuxième bateau du j1 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau2_j1 == "*":
+        bateau2_j1 = bateau2_j1.replace("*", "#")
+        nombre_bateauj1 -= 1
+        print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+    # Si le troisième bateau du j1 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau3_j1 == "*":
+        bateau3_j1 = bateau3_j1.replace("*", "#")
+        nombre_bateauj1 -= 1
+        print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+    # Si le quatrième bateau du j1 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau4_j1 == "*":
+        bateau4_j1 = bateau4_j1.replace("*", "#")
+        nombre_bateauj1 -= 1
+        print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+    # Si le cinquième bateau du j1 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau5_j1 == "*":
+        bateau5_j1 = bateau5_j1.replace("*", "#")
+        nombre_bateauj1 -= 1
+        print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
+    # Si le premier bateau du j2 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau1_j2 == "*":
+        bateau1_j2 = bateau1_j2.replace("*", "#")
+        nombre_bateauj2 -= 1
+        print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+    # Si le deuxième bateau du j2 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau2_j2 == "*":
+        bateau2_j2 = bateau2_j2.replace("*", "#")
+        nombre_bateauj2 -= 1
+        print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+    # Si le troisième bateau du j2 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau3_j2 == "*":
+        bateau3_j2 = bateau3_j2.replace("*", "#")
+        nombre_bateauj2 -= 1
+        print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+    # Si le quatrième bateau du j2 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau4_j2 == "*":
+        bateau4_j2 = bateau4_j2.replace("*", "#")
+        nombre_bateauj2 -= 1
+        print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
+    # Si le cinquième bateau du j2 a été atteint complètement, les cases du bateau sont remplacé par des hashtags
+    if bateau5_j2 == "*":
+        bateau5_j2 = bateau5_j2.replace("*", "#")
+        nombre_bateauj2 -= 1
+        print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
 
-        if bateau3_j1 == "*":
-            bateau3_j1 = bateau3_j1.replace("*", "#")
-            nombre_bateauj1 -= 1
-            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
-        if bateau4_j1 == "*":
-            bateau4_j1 = bateau4_j1.replace("*", "#")
-            nombre_bateauj1 -= 1
-            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
-        if bateau5_j1 == "*":
-            bateau5_j1 = bateau5_j1.replace("*", "#")
-            nombre_bateauj1 -= 1
-            print(f"Bateau restant du joueur 1: {nombre_bateauj1}")
-        if bateau1_j2 == "*":
-            bateau1_j2 = bateau1_j2.replace("*", "#")
-            nombre_bateauj2 -= 1
-            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
-
-        if bateau2_j2 == "*":
-            bateau2_j2 = bateau2_j2.replace("*", "#")
-            nombre_bateauj2 -= 1
-            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
-
-        if bateau3_j2 == "*":
-            bateau3_j2 = bateau3_j2.replace("*", "#")
-            nombre_bateauj2 -= 1
-            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
-
-        if bateau4_j2 == "*":
-            bateau4_j2 = bateau4_j2.replace("*", "#")
-            nombre_bateauj2 -= 1
-            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
-        if bateau5_j2 == "*":
-            bateau5_j2 = bateau5_j2.replace("*", "#")
-            nombre_bateauj2 -= 1
-            print(f"Bateau restant du joueur 2: {nombre_bateauj2}")
-
-        return bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
+    return bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
     bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2, nombre_bateauj1, nombre_bateauj2
 
 
@@ -412,12 +418,7 @@ def bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1,
 
 
 
-def affiche_nombre_bateau_restant(j1, j2):
-    """
-    Fonction qui affiche le nombre de bateau restant après chaque bateau noyé
-    :return: Le nombre de bateau restant du j1 ou du j2
-    """
-    #Si un des bateaux du j1 a été atteint complètement, affiche le nombre de bateau restant du j1
+
 
 
 
@@ -506,13 +507,13 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
         :param c: les colonnes de la grille
         :return: None
         """
-        hit = "*"
+        hit = "*"   
         miss = "X"
 
         # Dans le code principale : demande au joueur où il veut tirer son missile (l = xyz, c = xyz)
 
-        print(f"Tour du {tour_joueur}")  # dit quel joueur joue son tour
-        if tour_joueur == "Joueur 1":
+
+        if tour_joueur == "Joueur 2":
             # détermine si le missile tiré par le jouer 1 frappe un bateau ou non (en utilisant sa propre grille d'attaque)
             if grille_battleship_j1[l][c] == "^":
                 grille_battleship_attaque_j1[l][c] = hit
@@ -527,7 +528,7 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
                 for ligne in grille_battleship_attaque_j1:
                     print(ligne)
             # détermine si le missile tiré par le jouer 2 frappe un bateau ou non(en utilisant sa propre grille d'attaque)
-        elif tour_joueur == "Joueur 2":
+        elif tour_joueur == "Joueur 1":
             if grille_battleship_j1[l][c] == "^":
                 grille_battleship_attaque_j2[l][c] = hit
                 # affiche le missile étant "hit" sur la grille d'attaque du joueur
@@ -541,7 +542,7 @@ def resultat_missile(tour_joueur: str, l: int, c: int) -> None:
                 for ligne in grille_battleship_attaque_j2:
                     print(ligne)
 
-def fonction_tour_joueur(nb_tour_joueur: int,) -> str:
+def fonction_tour_joueur(nb_tour_joueur: int) -> str:
     """
     Fonction qui determine le tour du joueur (j1 ou j2)
     :param nb_tour_joueur: un nombre pour determiner le tour d'un joueur

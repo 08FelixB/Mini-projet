@@ -1,4 +1,4 @@
-from Definition.definition import placer_bateau, resultat_missile, bateau_atteint, tirer_missile, fonction_tour_joueur
+from Definition.definition import *
 
 if __name__ == "__main__":
     grille_battleship_j1 = [  # La liste du joueur 1 (affiche les bateaux placés)
@@ -56,14 +56,15 @@ if __name__ == "__main__":
     print("Bienvenue a Battleship!")
     print(fonction_tour_joueur(0))
 
-#PHASE PLACER BATEAU POUR CHAQUE JOUEURS (commence par joueur 1) -------------------------------------------------------
+#PHASE PLACER BATEAU POUR CHAQUE JOUEURS (commence par joueur 1)
 
 
-    #Partie à **Adem** <-----------
+    #Partie à **Adem** <------------------------------------------------------------------------------------------------
 
 
-    # demande a l'utilisateur les donnees besoins pour placer les bateaux
+    # demande a l'utilisateur les donnees besoins pour placer les bateaux dans la liste du joueur
     # si il y a une erreur, recommence le placement
+    # répéter 5 fois pour chaque joueur
     while True:
         direction = input("Choissisez une direction du premier bateau a 2 cases:")
         ligne_appel = input("Choissisez une ligne pour placer la queue du bateau.")
@@ -71,10 +72,12 @@ if __name__ == "__main__":
         l = int(ligne_appel)
         c = int(colonne_appel)
         #place le bateau
-        bateau21_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
-        if bateau21_j1 == "Cette emplacement a déja un bateau." or bateau21_j1 == "L'emplacement n'est pas dans la grille." or bateau21_j1 == "Erreur.":
+        bateau1_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
+        if bateau1_j1 == "Cette emplacement a déja un bateau." or bateau1_j1 == "L'emplacement n'est pas dans la grille." or bateau1_j1 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j1:
+                print(ligne)
             break
 
     while True:
@@ -84,10 +87,12 @@ if __name__ == "__main__":
         l = int(ligne_appel)
         c = int(colonne_appel)
         #place le bateau
-        bateau22_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
-        if bateau22_j1 == "Cette emplacement a déja un bateau." or bateau22_j1 == "L'emplacement n'est pas dans la grille." or bateau22_j1 == "Erreur.":
+        bateau2_j1 = placer_bateau(grille_battleship_j1, l, c, direction, 2)
+        if bateau2_j1 == "Cette emplacement a déja un bateau." or bateau2_j1 == "L'emplacement n'est pas dans la grille." or bateau2_j1 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j1:
+                print(ligne)
             break
 
     while True:
@@ -101,6 +106,8 @@ if __name__ == "__main__":
         if bateau3_j1 == "Cette emplacement a déja un bateau." or bateau3_j1 == "L'emplacement n'est pas dans la grille." or bateau3_j1 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j1:
+                print(ligne)
             break
 
     while True:
@@ -114,6 +121,8 @@ if __name__ == "__main__":
         if bateau4_j1 == "Cette emplacement a déja un bateau." or bateau4_j1 == "L'emplacement n'est pas dans la grille." or bateau4_j1 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j1:
+                print(ligne)
             break
 
     while True:
@@ -127,11 +136,9 @@ if __name__ == "__main__":
         if bateau5_j1 == "Cette emplacement a déja un bateau." or bateau5_j1 == "L'emplacement n'est pas dans la grille." or bateau5_j1 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j1:
+                print(ligne)
             break
-
-    print(grille_battleship_j1)
-
-    print(fonction_tour_joueur(1))
 
     while True:
         direction = input("Choissisez une direction du premier bateau a 2 cases du Joueur 2:")
@@ -140,10 +147,12 @@ if __name__ == "__main__":
         l = int(ligne_appel)
         c = int(colonne_appel)
         # place le bateau
-        bateau21_j2 = placer_bateau(grille_battleship_j2, l, c, direction, 2)
-        if bateau21_j2 == "Cette emplacement a déja un bateau." or bateau21_j2 == "L'emplacement n'est pas dans la grille." or bateau21_j2 == "Erreur.":
+        bateau1_j2 = placer_bateau(grille_battleship_j2, l, c, direction, 2)
+        if bateau1_j2 == "Cette emplacement a déja un bateau." or bateau1_j2 == "L'emplacement n'est pas dans la grille." or bateau1_j2 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j2:
+                print(ligne)
             break
 
     while True:
@@ -153,10 +162,12 @@ if __name__ == "__main__":
         l = int(ligne_appel)
         c = int(colonne_appel)
         # place le bateau
-        bateau22_j2 = placer_bateau(grille_battleship_j2, l, c, direction, 2)
-        if bateau22_j2 == "Cette emplacement a déja un bateau." or bateau22_j2 == "L'emplacement n'est pas dans la grille." or bateau22_j2 == "Erreur.":
+        bateau2_j2 = placer_bateau(grille_battleship_j2, l, c, direction, 2)
+        if bateau2_j2 == "Cette emplacement a déja un bateau." or bateau2_j2 == "L'emplacement n'est pas dans la grille." or bateau2_j2 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j2:
+                print(ligne)
             break
 
     while True:
@@ -170,6 +181,8 @@ if __name__ == "__main__":
         if bateau3_j2 == "Cette emplacement a déja un bateau." or bateau3_j2 == "L'emplacement n'est pas dans la grille." or bateau3_j2 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j2:
+                print(ligne)
             break
 
     while True:
@@ -183,6 +196,8 @@ if __name__ == "__main__":
         if bateau4_j2 == "Cette emplacement a déja un bateau." or bateau4_j2 == "L'emplacement n'est pas dans la grille." or bateau4_j2 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j2:
+                print(ligne)
             break
 
     while True:
@@ -196,29 +211,50 @@ if __name__ == "__main__":
         if bateau5_j2 == "Cette emplacement a déja un bateau." or bateau5_j2 == "L'emplacement n'est pas dans la grille." or bateau5_j2 == "Erreur.":
             print("Veuillez réesayer.")
         else:
+            for ligne in grille_battleship_j2:
+                print(ligne)
             break
 
 
 
 
-    # Partie à **Ludo** <------
+    # Partie à **Ludo** <----------------------------------------------------------------------------------------
+
     # demande a l'utilisateur où tirer son missile (coordonnées)
     n = 1
     fonction_tour_joueur(n)
     # Pour les 2 joueurs
+
     for i in range(2):
         n += 1
+        print(f"Tour du {fonction_tour_joueur(n)}")  # dit quel joueur joue son tour
         try:
-            ligne = int(input("Choissisez une ligne (horizontale) à où tirer le missile."))
-            colone = int(input("Choissisez une colonne (verticale) à où tirer le missile."))
-            if 0 < colone < 9 or 0 < ligne < 9:
+            l = int(input("Choissisez une ligne (horizontale) à où tirer le missile : "))
+            c = int(input("Choissisez une colone (verticale) à où tirer le missile : "))
+            if 0 < c < 9 or 0 < l < 9:
                 print("Votre missile à tiré!")
-                tirer_missile(fonction_tour_joueur(n), l, c,)
+                # Remplace la case dans la grille d'attaque du joueur avec un "hit" ou un "miss"
+                tirer_missile(fonction_tour_joueur(n), l, c)
+                print("*" * 70)
+                # Affiche les résultats du missile tiré
+                resultat_missile(fonction_tour_joueur(n), l, c)
+                print("*" * 70)
                 break
             else:
                 print("Vos coordonnées doivent être entre ou égales à 0 et 8")
         except ValueError:
             print("Les coordonnées doivent êtres des nombres!")
+
+
+    #Partie à **Félix** <--------
+
+    #Remplace la case du bateau coulé par des hashtags
+    bateau_atteint(bateau1_j1, bateau2_j1, bateau3_j1, bateau4_j1, bateau5_j1, bateau1_j2, bateau2_j2, bateau3_j2, bateau4_j2, bateau5_j2,
+                   nombre_bateauj1, nombre_bateauj2)
+    #Affiche le gagnant selon le nombre de bateau restant
+    afficher_gagnant(nombre_bateauj1, nombre_bateauj2)
+
+
 
 
 
